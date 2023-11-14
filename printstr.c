@@ -7,6 +7,7 @@
 /**
  * ppstr - parse and print string from va_list
  * @ap: arg ptr to string
+ * @spec: format specifier
  * Return: int, number of printed chars
  */
 int ppstr(va_list ap, char *spec)
@@ -26,6 +27,7 @@ int ppstr(va_list ap, char *spec)
 /**
  * pprev - parse and print @str in reverse order
  * @ap: ptr to list of args, the str to retrieve
+ * @spec: format specifier
  * Return: Number of printed chars
  */
 int pprev(va_list ap, char *spec)
@@ -60,6 +62,7 @@ int pprev(va_list ap, char *spec)
 /**
  * pprot13 - parse @str arg from va_list and print
  * @ap: arg ptr
+ * @spec: format specifier
  * Return: number of printed chars
  */
 int pprot13(va_list ap, char *spec)
@@ -99,12 +102,13 @@ int pprot13(va_list ap, char *spec)
 /**
  * print_str - print a string pointed to by @str
  * @str: ptr to string
+ * @len: string length
  * Return: int, number of printed chars
  */
 int print_str(char *str, int len)
 {
 	if (!str)
-		return print_str("(null)", 6);
+		return (print_str("(null)", 6));
 
 	return (write(1, str, len));
 }
