@@ -4,12 +4,15 @@
 /**
  * ppchar - extract char from @va_list
  * @ap: ptr to list of args
+ * @spec: format specifier
  * Return: int, number of printed chars
  */
 int ppchar(va_list ap, char *spec)
 {
 	int count;
 
+	if (!spec)
+		return (0);
 	count = put_char(va_arg(ap, int));
 
 	return (count);

@@ -6,7 +6,7 @@
 /**
  * struct pfunc_t - printing functions and their identifiers
  * @spec: format specifier
- * @fun: print function
+ * @func: print function
  */
 typedef struct pfunc_t
 {

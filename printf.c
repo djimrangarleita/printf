@@ -10,27 +10,15 @@
  */
 int _printf(const char *format, ...)
 {
-	pfunc_t pfuncs[] = {
-		{"c", ppchar},
-		{"s", ppstr},
-		{"d", ppnum},
-		{"i", ppnum},
-		{"r", pprev},
-		{"R", pprot13},
-		{"b", ppbnum},
-		{"x", ppbnum},
-		{"X", ppbnum},
-		{"o", ppbnum},
-		{"u", ppbnum},
-		{NULL, NULL}
-	};
+	pfunc_t pfuncs[] = {{"c", ppchar}, {"s", ppstr}, {"d", ppnum}, {"i",
+		ppnum}, {"r", pprev}, {"R", pprot13}, {"b", ppbnum}, {"x",
+			ppbnum}, {"X", ppbnum}, {"o", ppbnum}, {"u", ppbnum},
+		{NULL, NULL}};
 	va_list ap;
 	int i, j, count;
 
 	va_start(ap, format);
-
-	i = 0;
-	count = 0;
+	i = 0, count = 0;
 	while (format && format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -41,23 +29,21 @@ int _printf(const char *format, ...)
 			{
 				if (format[i] == *(pfuncs[j].spec))
 				{
-					count += pfuncs[j].func(ap, pfuncs[j].spec);
+					count += pfuncs[j].func(ap,
+							pfuncs[j].spec);
 					break;
 				}
 				j++;
 			}
 			if (pfuncs[j].spec == NULL)
-			{
 				count += put_char(format[i]);
-			}
 		}
 		else
 		{
 			count += put_char(format[i]);
 		}
-		
+
 		i++;
 	}
-
 	return (count);
 }
