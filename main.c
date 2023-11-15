@@ -54,6 +54,14 @@ int main(void)
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
 
+    _printf("Unknown: [%h]\n", "");
+    printf("Unknown: [%h]\n", "");
+
+    _printf("Null term: [%c]\n", '\0');
+    printf("Null term: [%c]\n", '\0');
+    _printf("New line: [%c]\n", '\n');
+    printf("New line: [%c]\n", '\n');
+    
 
     _printf("Print rev:[%r]\n", "Try reverse me!");
     len = _printf("ROT13:[%R]\n", "#cisfun");
