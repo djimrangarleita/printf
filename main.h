@@ -34,7 +34,7 @@ int ppbnum(va_list, char *format);
  */
 int put_char(char c);
 int print_str(char *str, int len);
-int print_num(long long int n);
+int print_num(int n);
 int printb_num(unsigned int n, int base, char *spec);
 
 /*

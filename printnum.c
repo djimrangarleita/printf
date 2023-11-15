@@ -10,6 +10,8 @@ int ppnum(va_list ap, char *spec)
 {
 	int count;
 
+	if (!spec)
+		return (0);
 	count = print_num(va_arg(ap, int));
 
 	return (count);
@@ -52,7 +54,7 @@ int ppbnum(va_list ap, char *spec)
  * @n: the number to print
  * Return: number of printed chars
  */
-int print_num(long long int n)
+int print_num(int n)
 {
 	int lastdigit, sign = 1, count = 0;
 
@@ -86,7 +88,7 @@ int printb_num(unsigned int n, int base, char *spec)
 	int count = 0;
 	const char *equiv = "0123456789abcdef";
 
-	if (n < base)
+	if (n < (unsigned int)base)
 	{
 		if (n > 9 && *spec == 'X')
 			return (put_char(equiv[n] - 32));
