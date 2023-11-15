@@ -21,7 +21,11 @@ int _printf(const char *format, ...)
 	i = 0, count = 0;
 	while (format && format[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && (((format[i + 1] > 64 && format[i + 1] < 
+							91) || (format[i + 1] > 
+								96 && format[i + 
+								1] < 123)) || 
+					format[i + 1] == '%'))
 		{
 			i++;
 			j = 0;
@@ -36,7 +40,10 @@ int _printf(const char *format, ...)
 				j++;
 			}
 			if (pfuncs[j].spec == NULL)
-				count += put_char('%');
+			{
+				count += put_char(format[i - 1]);
+
+			}
 		}
 		else
 		{
