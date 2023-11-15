@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 		ppnum}, {"r", pprev}, {"R", pprot13}, {"b", ppbnum}, {"x",
 			ppbnum}, {"X", ppbnum}, {"o", ppbnum}, {"u", ppbnum},
 		{NULL, NULL}};
-	va_list ap, int i, j, count;
+	va_list ap;
+	int i, j, count;
 
 	va_start(ap, format);
 	i = 0, count = 0;
@@ -45,6 +46,7 @@ int _printf(const char *format, ...)
 		{
 			count += put_char(format[i]);
 		}
+
 		i++;
 	}
 	return (count);
