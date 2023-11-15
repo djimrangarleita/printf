@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * ppstr - parse and print string from va_list
