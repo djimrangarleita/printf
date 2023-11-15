@@ -14,17 +14,16 @@ int _printf(const char *format, ...)
 		ppnum}, {"r", pprev}, {"R", pprot13}, {"b", ppbnum}, {"x",
 			ppbnum}, {"X", ppbnum}, {"o", ppbnum}, {"u", ppbnum},
 		{NULL, NULL}};
-	va_list ap;
-	int i, j, count;
+	va_list ap, int i, j, count;
 
 	va_start(ap, format);
 	i = 0, count = 0;
 	while (format && format[i] != '\0')
 	{
-		if (format[i] == '%' && (((format[i + 1] > 64 && format[i + 1] < 
-							91) || (format[i + 1] > 
-								96 && format[i + 
-								1] < 123)) || 
+		if (format[i] == '%' && (((format[i + 1] > 64 && format[i + 1] <
+							91) || (format[i + 1] >
+								96 && format[i +
+								1] < 123)) ||
 					format[i + 1] == '%'))
 		{
 			i++;
@@ -40,16 +39,12 @@ int _printf(const char *format, ...)
 				j++;
 			}
 			if (pfuncs[j].spec == NULL)
-			{
 				count += put_char(format[i - 1]);
-
-			}
 		}
 		else
 		{
 			count += put_char(format[i]);
 		}
-
 		i++;
 	}
 	return (count);
