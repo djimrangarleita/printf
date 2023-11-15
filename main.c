@@ -57,10 +57,10 @@ int main(void)
     _printf("Unknown: [%h]\n", "");
     printf("Unknown: [%h]\n", "");
 
-    _printf("Null term: [%c]\n", '\0');
-    printf("Null term: [%c]\n", '\0');
-    _printf("New line: [%c]\n", '\n');
-    printf("New line: [%c]\n", '\n');
+    len = _printf("Char: [%c]\n", 'H');
+    len2 = printf("Char: [%c]\n", 'H');
+    printf("Len of _printf with char: [%d]\n", len);
+    printf("Len of printf with char: [%d]\n", len2);
     
 
     _printf("Print rev:[%r]\n", "Try reverse me!");
