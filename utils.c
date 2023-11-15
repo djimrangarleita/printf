@@ -1,7 +1,3 @@
-/*
- * this file content utils/helpers functions
- */
-
 /**
  * _strlen - calculate the length of the string @str
  * @str: char pointer to string

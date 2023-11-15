@@ -16,9 +16,10 @@ int ppstr(va_list ap, char *spec)
 	int len;
 	char *tmp;
 
+	if (spec == NULL)
+		return (0);
 	tmp = va_arg(ap, char *);
 	len = _strlen(tmp);
-
 	count = print_str(tmp, len);
 
 	return (count);
@@ -35,11 +36,12 @@ int pprev(va_list ap, char *spec)
 	int len, i, j, count = 0;
 	char *str, *tmp;
 
+	if (spec == NULL)
+		return (0);
 	tmp = va_arg(ap, char *);
 	len = _strlen(tmp);
 	if (!tmp)
 		return (print_str(NULL, 0));
-
 	str = malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (0);
@@ -71,7 +73,9 @@ int pprot13(va_list ap, char *spec)
 	char *tmp, *str;
 	char comp[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char equiv[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-
+	
+	if (spec == NULL)
+		return (0);
 	tmp = va_arg(ap, char *);
 	len = _strlen(tmp);
 	str = malloc(len * sizeof(char));
