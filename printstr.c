@@ -73,7 +73,7 @@ int pprot13(va_list ap, char *spec)
 	char *tmp, *str;
 	char comp[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char equiv[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	
+
 	if (spec == NULL)
 		return (0);
 	tmp = va_arg(ap, char *);
