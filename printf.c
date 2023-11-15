@@ -35,8 +35,8 @@ int _printf(const char *format, ...)
 				}
 				j++;
 			}
-			if (pfuncs[j].spec == NULL && format[i] == '%')
-				count += put_char(format[i]);
+			if (pfuncs[j].spec == NULL)
+				count += put_char('%');
 		}
 		else
 		{
